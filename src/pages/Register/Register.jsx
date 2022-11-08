@@ -1,7 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -9,8 +15,25 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-
     console.log(name, photoURL, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        toast.success("Congratulation, Registration successful");
+        console.log(user);
+        setError("");
+        form.reset();
+        navigate("/");
+        updateUserProfileInfo(name, photoURL);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const updateUserProfileInfo = (name, photoURL) => {
+    updateUserProfile(name, photoURL)
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -92,7 +115,7 @@ const Register = () => {
                 />
               </div>
             </div>
-            <div className=" text-red-400">{}</div>
+            <div className=" text-red-400">{error}</div>
 
             <div className="flex items-center mt-4">
               <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-sky-500 rounded-md hover:bg-sky-700 focus:outline-none focus:bg-sky-500">
