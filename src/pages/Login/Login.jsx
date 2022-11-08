@@ -1,14 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const handleLogin = (e) => {
+  const [error, setError] = useState("");
+  const { login, googleLogin } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-
     console.log(email, password);
+
+    login(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Login successful");
+        setError("");
+        form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login successful");
+        setError("");
+        navigate(from, { replace: true });
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -20,7 +57,7 @@ const Login = () => {
           </h3>
         </div>
         <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleSubmit}>
             <div className="mt-4">
               <label
                 htmlFor="email"
@@ -54,7 +91,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            <div className=" text-red-400"></div>
+            <div className=" text-red-400">{error}</div>
             <div className="flex items-center mt-4">
               <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-sky-500 rounded-md hover:bg-sky-700 focus:outline-none focus:bg-sky-500">
                 Login
@@ -76,6 +113,7 @@ const Login = () => {
           </div>
           <div className="my-6 space-y-2">
             <button
+              onClick={handleGoogleLogin}
               aria-label="Login with Google"
               type="button"
               className="flex items-center justify-center w-full p-2 space-x-4 border  hover:bg-gray-700 hover:text-white rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"

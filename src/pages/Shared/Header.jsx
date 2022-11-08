@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast.success("Log out successful");
+      })
+      .catch((error) => console.error(error));
+  };
+
   const navItems = (
     <>
       <li>
@@ -9,9 +21,19 @@ const Header = () => {
         <Link to="/services">Services</Link>
         <Link to="/reviews">My Reviews</Link>
         <Link to="/add-services">Add Services</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/Login">Login</Link>
-        <button className="btn bg-red-500 text-white border-0 ">Logout</button>
+        {user?.email ? (
+          <button
+            onClick={handleLogout}
+            className="btn bg-red-500 text-white border-0 "
+          >
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link to="/register">Register</Link>
+            <Link to="/Login">Login</Link>
+          </>
+        )}
       </li>
     </>
   );
@@ -47,7 +69,7 @@ const Header = () => {
           PHOTOGRAPHY KING
         </Link>
       </div>
-      <div className="navbar hidden lg:flex">
+      <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{navItems}</ul>
       </div>
     </div>
