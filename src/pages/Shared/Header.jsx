@@ -22,8 +22,8 @@ const Header = () => {
         <Link to="/blog">Blog</Link>
         {user?.email ? (
           <>
+            <Link to="/add-service">Add Service</Link>
             <Link to="/my-review">My Review</Link>
-            <Link to="/add-services">Add Services</Link>
             <button
               onClick={handleLogout}
               className="btn bg-red-500 text-white border-0 "

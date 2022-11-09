@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
+import AddService from "../pages/AddService/AddService";
 import Blog from "../pages/Blog/Blog";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
         element: (
           <PrivetRoute>
             <MyReview />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/add-service",
+        element: (
+          <PrivetRoute>
+            <AddService />
           </PrivetRoute>
         ),
       },
