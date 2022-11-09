@@ -6,12 +6,13 @@ import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const ServiceDetails = () => {
-  const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
+  const [reviews, setReviews] = useState([]);
+  const [count, setCount] = useState(0);
+
   const { name, price, _id, image, description } = data.data;
 
-  console.log(reviews);
   const handleReview = (e) => {
     e.preventDefault();
     const message = e.target.message.value;
@@ -33,6 +34,7 @@ const ServiceDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setCount(count + 1);
         console.log(data);
         e.target.reset();
       })
@@ -40,14 +42,13 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch(`http://localhost:5000/review?name=${name}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
         setReviews(data.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [name, count]);
 
   return (
     <div>
@@ -94,7 +95,9 @@ const ServiceDetails = () => {
         </div>
       </div>
       <div>
-        <h3 className="text-4xl font-bold text-center mb-10">User Review</h3>
+        <h3 className="text-4xl font-bold text-center mb-10">
+          {reviews.length ? "User Review" : "No Review"}
+        </h3>
         <div className="grid grid-cols-3 gap-10">
           {reviews?.map((review) => (
             <ReviewCard key={review._id} review={review} />

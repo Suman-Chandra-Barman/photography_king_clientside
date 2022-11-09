@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import AboutMe from "./AboutMe";
 import PhotoGallery from "./PhotoGallery";
 import ServiceCart from "./ServiceCart";
@@ -8,6 +9,7 @@ import Slider from "./Slider";
 const Home = () => {
   const [services, setServices] = useState();
   const [totalService, setTotalService] = useState(0);
+  useTitle("Home");
 
   useEffect(() => {
     fetch(`http://localhost:5000/service?total=${totalService}&limit=3`)
