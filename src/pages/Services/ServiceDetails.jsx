@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import ReviewCard from "./ReviewCard";
+import "react-photo-view/dist/react-photo-view.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
@@ -52,7 +54,11 @@ const ServiceDetails = () => {
       <div className="grid grid-cols-2 gap-5 my-16">
         <div className="card card-compact bg-base-100 shadow-2xl">
           <figure>
-            <img className="w-full" src={image} alt="Shoes" />
+            <PhotoProvider>
+              <PhotoView src={image}>
+                <img className="w-full" src={image} alt="Shoes" />
+              </PhotoView>
+            </PhotoProvider>
           </figure>
           <div className="card-body mb-10">
             <h2 className="card-title text-2xl font-bold">{name}</h2>
