@@ -6,7 +6,7 @@ const ServiceCart = ({ service }) => {
   return (
     <div className="card card-compact bg-base-100 shadow-2xl">
       <figure>
-        <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+        <img src={image} alt="Shoes" className="h-56 w-full" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-2xl font-bold">{name}</h2>
@@ -16,7 +16,7 @@ const ServiceCart = ({ service }) => {
             : description}
         </p>
         <div className="card-actions justify-between items-center">
-          <p className="text-xl font-semibold">Price : {price}</p>
+          <p className="text-xl font-semibold">Price : ${price}</p>
           <Link to={`/services/${_id}`}>
             <button className="btn btn-primary">View Details</button>
           </Link>

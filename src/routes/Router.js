@@ -4,8 +4,11 @@ import Blog from "../pages/Blog/Blog";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
+import MyReview from "../pages/MyReview/MyReview";
 import Register from "../pages/Register/Register";
+import ServiceDetails from "../pages/Services/ServiceDetails";
 import Services from "../pages/Services/Services";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <Services />,
+        element: <ServiceDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
       },
@@ -35,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/my-review",
+        element: (
+          <PrivetRoute>
+            <MyReview />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/login",
