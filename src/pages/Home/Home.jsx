@@ -7,17 +7,19 @@ import Slider from "./Slider";
 
 const Home = () => {
   const [services, setServices] = useState();
+  const [totalService, setTotalService] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/service?limit=3`)
+    fetch(`http://localhost:5000/service?total=${totalService}&limit=3`)
       .then((res) => res.json())
       .then((data) => {
         setServices(data.data);
+        setTotalService(data.total);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [totalService]);
 
   return (
     <div>
