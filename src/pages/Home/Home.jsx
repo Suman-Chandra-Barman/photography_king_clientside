@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AboutMe from "./AboutMe";
 import PhotoGallery from "./PhotoGallery";
 import ServiceCart from "./ServiceCart";
 import Slider from "./Slider";
@@ -31,7 +32,12 @@ const Home = () => {
           <button className="btn btn-primary">See All Service</button>
         </Link>
       </div>
-      <PhotoGallery />
+      <div>
+        <PhotoGallery />
+      </div>
+      <div>
+        <AboutMe></AboutMe>
+      </div>
     </div>
   );
 };
