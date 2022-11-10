@@ -7,6 +7,7 @@ import MyReviewCard from "./MyReviewCart";
 const MyReview = () => {
   const { user } = useContext(AuthContext);
   const [myReview, setMyReview] = useState([]);
+  const [update, setUpdate] = useState(0);
   useTitle("My Review");
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const MyReview = () => {
         setMyReview(data.data);
       })
       .catch((error) => console.log(error));
-  }, [user?.email]);
+  }, [user?.email, update]);
 
   const handleReviewDelete = (id) => {
     const proceed = window.confirm("Are you sure want to delete this review ?");
@@ -57,6 +58,7 @@ const MyReview = () => {
               <MyReviewCard
                 key={review._id}
                 review={review}
+                setUpdate={setUpdate}
                 handleReviewDelete={handleReviewDelete}
               />
             ))}
