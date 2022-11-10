@@ -5,7 +5,8 @@ import { AuthContext } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, setSpinner, loadingSpinner } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   useTitle("Register");
@@ -27,9 +28,13 @@ const Register = () => {
         setError("");
         form.reset();
         navigate("/");
+        setSpinner(false);
         updateUserProfileInfo(name, photoURL);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setSpinner(false);
+        console.log(error);
+      });
   };
 
   const updateUserProfileInfo = (name, photoURL) => {
@@ -42,6 +47,7 @@ const Register = () => {
     <div className="bg-gray-50 py-10">
       <div className="flex flex-col  items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
         <div>
+          {loadingSpinner()}
           <h3 className="text-4xl font-bold text-gray-700">
             Register Your Account
           </h3>

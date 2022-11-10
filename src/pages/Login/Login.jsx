@@ -8,7 +8,8 @@ import setAuthToken from "../../utilities/setAuthToken";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { login, googleLogin } = useContext(AuthContext);
+  const { login, googleLogin, setSpinner, loadingSpinner } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -30,10 +31,12 @@ const Login = () => {
         setError("");
         form.reset();
         setAuthToken(user);
+        setSpinner(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
+        setSpinner(false);
       });
   };
 
@@ -53,6 +56,7 @@ const Login = () => {
     <div className="bg-gray-50 py-10">
       <div className="flex flex-col  items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
         <div>
+          {loadingSpinner()}
           <h3 className="text-4xl font-bold text-gray-700">
             Login Your Account
           </h3>

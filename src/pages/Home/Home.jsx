@@ -12,7 +12,9 @@ const Home = () => {
   useTitle("Home");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/service?total=${totalService}&limit=3`)
+    fetch(
+      `https://photography-king-server.vercel.app/service?total=${totalService}&limit=3`
+    )
       .then((res) => res.json())
       .then((data) => {
         setServices(data.data);

@@ -11,11 +11,16 @@ const MyReview = () => {
   useTitle("My Review");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my-review?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("photography_king_jwt")}`,
-      },
-    })
+    fetch(
+      `https://photography-king-server.vercel.app/my-review?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem(
+            "photography_king_jwt"
+          )}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -27,7 +32,7 @@ const MyReview = () => {
   const handleReviewDelete = (id) => {
     const proceed = window.confirm("Are you sure want to delete this review ?");
     if (proceed) {
-      fetch(`http://localhost:5000/my-review/${id}`, {
+      fetch(`https://photography-king-server.vercel.app/my-review/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

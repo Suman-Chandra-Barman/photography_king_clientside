@@ -9,6 +9,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { Oval } from "react-loader-spinner";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -18,14 +19,17 @@ console.log(auth);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [spinner, setSpinner] = useState(false);
 
   const createUser = (email, password) => {
     setLoading(true);
+    setSpinner(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const login = (email, password) => {
     setLoading(true);
+    setSpinner(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -47,6 +51,12 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const loadingSpinner = () => {
+    if (spinner) {
+      return <Oval visible={true} height="60" width="60" color="red" />;
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -59,6 +69,9 @@ const AuthProvider = ({ children }) => {
   const userInfo = {
     user,
     loading,
+    spinner,
+    setSpinner,
+    loadingSpinner,
     createUser,
     updateUserProfile,
     login,

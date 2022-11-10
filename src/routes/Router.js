@@ -24,13 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services />,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () =>
+          fetch("https://photography-king-server.vercel.app/services"),
       },
       {
         path: "/services/:id",
         element: <ServiceDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://photography-king-server.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/register",

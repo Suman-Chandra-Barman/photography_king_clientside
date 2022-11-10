@@ -25,7 +25,7 @@ const ServiceDetails = () => {
       serviceID: _id,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://photography-king-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,7 +42,7 @@ const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?name=${name}`)
+    fetch(`https://photography-king-server.vercel.app/review?name=${name}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data.data);

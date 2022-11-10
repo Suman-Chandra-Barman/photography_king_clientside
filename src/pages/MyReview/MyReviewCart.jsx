@@ -7,7 +7,7 @@ const MyReviewCard = ({ review, handleReviewDelete, setUpdate }) => {
     e.preventDefault();
     const updateMessage = e.target.updateMessage.value;
     console.log(updateMessage);
-    fetch(`http://localhost:5000/my-review/${_id}`, {
+    fetch(`https://photography-king-server.vercel.app/my-review/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
