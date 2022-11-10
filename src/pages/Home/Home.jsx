@@ -28,15 +28,19 @@ const Home = () => {
   return (
     <div>
       <Slider />
-      <div className="md:grid grid-cols-3 gap-5 mt-16 mb-10">
-        {services?.map((service) => (
-          <ServiceCart key={service._id} service={service} />
-        ))}
-      </div>
-      <div className="text-center">
-        <Link to="/services">
-          <button className="btn btn-primary">See All Service</button>
-        </Link>
+      <div className="rounded-xl">
+        <div className="md:grid grid-cols-3 gap-5 mt-16 mb-5">
+          {services?.map((service) => (
+            <ServiceCart key={service._id} service={service} />
+          ))}
+        </div>
+        <div className="text-center ">
+          <Link to="/services">
+            <button className="btn px-20 btn-success text-white">
+              See All Service
+            </button>
+          </Link>
+        </div>
       </div>
       <div>
         <PhotoGallery />

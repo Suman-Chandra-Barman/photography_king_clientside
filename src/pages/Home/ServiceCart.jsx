@@ -6,7 +6,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 const ServiceCart = ({ service }) => {
   const { name, price, _id, image, description } = service;
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div className="card card-compact bg-base-100 border shadow-lg">
       <figure>
         <PhotoProvider>
           <PhotoView src={image}>
@@ -24,7 +24,9 @@ const ServiceCart = ({ service }) => {
         <div className="card-actions justify-between items-center">
           <p className="text-xl font-semibold">Price : ${price}</p>
           <Link to={`/services/${_id}`}>
-            <button className="btn btn-primary">View Details</button>
+            <button className="btn btn-outline btn-success">
+              View Details
+            </button>
           </Link>
         </div>
       </div>

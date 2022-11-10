@@ -98,7 +98,7 @@ const Login = () => {
             </div>
             <div className=" text-red-400">{error}</div>
             <div className="flex items-center mt-4">
-              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-sky-500 rounded-md hover:bg-sky-700 focus:outline-none focus:bg-sky-500">
+              <button className="w-full px-4 py-2 text-white bg-success rounded-md hover:bg-teal-500">
                 Login
               </button>
             </div>
@@ -106,7 +106,7 @@ const Login = () => {
           <div className="mt-4 text-grey-600">
             Don't have an account?{" "}
             <span>
-              <Link className="text-sky-500 hover:underline" to="/register">
+              <Link className="text-success hover:underline" to="/register">
                 Register
               </Link>
             </span>
@@ -121,7 +121,7 @@ const Login = () => {
               onClick={handleGoogleLogin}
               aria-label="Login with Google"
               type="button"
-              className="flex items-center justify-center w-full p-2 space-x-4 border  hover:bg-gray-700 hover:text-white rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+              className="flex items-center justify-center btn w-full p-2 btn-outline btn-success hover:bg-teal-500 rounded-md "
             >
               <p>Login with Google</p>
             </button>

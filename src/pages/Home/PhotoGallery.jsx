@@ -14,7 +14,7 @@ import img12 from "../../assets/gallery/images (12).jpg";
 
 const PhotoGallery = () => {
   return (
-    <div className="my-16">
+    <div className="my-16 ">
       <h3 className="text-3xl font-bold text-center mb-10">Photo Gallery</h3>
       <div className="md:grid grid-cols-4 gap-5">
         <img src={img1} alt="" className="w-full" />

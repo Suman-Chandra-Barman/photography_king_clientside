@@ -4,27 +4,26 @@ import myImg from "../../assets/about-me/sumanFb.jpg";
 const AboutMe = () => {
   return (
     <div>
-      <div className="md:flex gap-10 justify-center items-center px-5">
+      <div className="md:flex gap-10 justify-center items-center px-5 py-16 rounded-xl">
         <div className="w-1/3 mx-auto">
           <img className="mask mask-circle md:w-2/3" src={myImg} alt="" />
         </div>
-        <div className="md:w-2/3">
-          <h3 className="text-3xl font-bold">Suman Chandra Barman</h3>
-          <p className="text-xl mt-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-            tempora iste quo aut repudiandae possimus quis dignissimos,
-            voluptatibus neque earum minima laboriosam placeat corrupti rerum
-            nam officia ullam, dicta cumque qui? Esse voluptatibus officia, amet
-            sunt hic beatae recusandae odit aliquid soluta quod error quis autem
-            reprehenderit modi perferendis, quae voluptates necessitatibus.
-            Excepturi exercitationem recusandae repellat laboriosam quis culpa
-            neque cumque expedita cupiditate repudiandae ipsa officiis, rerum
-            laudantium quisquam at blanditiis dicta quia accusantium aperiam,
-            explicabo inventore! Impedit laudantium nesciunt fugit enim
-            exercitationem! Velit sapiente magnam inventore dolore praesentium!
-            Provident cum mollitia commodi aspernatur, ab nisi id minus fugiat
-            eum.
+        <div className="md:w-2/3 text-gray-700">
+          <h3 className="text-4xl font-bold">
+            Photography King: <br /> The Best Professional Photographer In
+            Bangladesh
+          </h3>
+          <p className="text-xl my-5">
+            Photography King a team of top photographers with a passion for
+            photography and everything that comes with it. We are the leading
+            and best photo studio in Dhaka to create art and crafts with
+            photography.
           </p>
+          <ul className="list-disc text-xl pl-4 font-semibold">
+            <li>Professionally trained photographers.</li>
+            <li>We have over 10 years of experience.</li>
+            <li>We offer excellence being affordable</li>
+          </ul>
         </div>
       </div>
     </div>

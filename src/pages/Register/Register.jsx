@@ -126,7 +126,7 @@ const Register = () => {
             <div className=" text-red-400">{error}</div>
 
             <div className="flex items-center mt-4">
-              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-sky-500 rounded-md hover:bg-sky-700 focus:outline-none focus:bg-sky-500">
+              <button className="w-full px-4 py-2 text-white bg-success rounded-md hover:bg-teal-500">
                 Register
               </button>
             </div>
@@ -134,7 +134,7 @@ const Register = () => {
           <div className="mt-4 text-grey-600">
             Already have an account?{" "}
             <span>
-              <Link className="text-sky-500 hover:underline" to="/login">
+              <Link className="text-success hover:underline" to="/login">
                 Log in
               </Link>
             </span>
