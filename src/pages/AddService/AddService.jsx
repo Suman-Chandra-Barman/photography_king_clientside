@@ -108,7 +108,7 @@ const AddService = () => {
             <div className=" text-red-400">{}</div>
 
             <div className="flex items-center mt-4">
-              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-sky-500 rounded-md hover:bg-sky-700 focus:outline-none focus:bg-sky-500">
+              <button className="w-full px-4 py-2  text-white bg-success rounded-md hover:bg-green-600 focus:outline-none">
                 Add Service
               </button>
             </div>

@@ -46,6 +46,8 @@ const Login = () => {
         const user = result.user;
         toast.success("Login successful");
         setError("");
+        setAuthToken(user);
+        setSpinner(false);
         navigate(from, { replace: true });
         console.log(user);
       })

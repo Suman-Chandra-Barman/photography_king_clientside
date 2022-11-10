@@ -36,6 +36,9 @@ const MyReview = () => {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem(
+            "photography_king_jwt"
+          )}`,
         },
       })
         .then((res) => res.json())
@@ -58,7 +61,7 @@ const MyReview = () => {
           <h3 className="text-center text-3xl font-bold mb-10">
             My Review : {myReview?.length}
           </h3>
-          <div className="grid grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-10">
             {myReview?.map((review) => (
               <MyReviewCard
                 key={review._id}

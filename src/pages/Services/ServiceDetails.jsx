@@ -52,7 +52,7 @@ const ServiceDetails = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-5 my-16">
+      <div className="grid  md:grid-cols-2 gap-5 my-16">
         <div className="card card-compact bg-base-100 shadow-2xl">
           <figure>
             <PhotoProvider>
@@ -80,7 +80,7 @@ const ServiceDetails = () => {
                   placeholder="Type Your Review"
                 ></textarea>
               </div>
-              <button className="btn w-full mt-5" type="submit">
+              <button className="btn btn-success w-full mt-5" type="submit">
                 Post
               </button>
             </form>
@@ -98,7 +98,7 @@ const ServiceDetails = () => {
         <h3 className="text-4xl font-bold text-center mb-10">
           {reviews.length ? "User Review" : "No Review"}
         </h3>
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-3 gap-10">
           {reviews?.map((review) => (
             <ReviewCard key={review._id} review={review} />
           ))}
