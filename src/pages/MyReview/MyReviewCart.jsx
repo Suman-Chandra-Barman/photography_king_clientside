@@ -25,12 +25,12 @@ const MyReviewCard = ({ review, handleReviewDelete, setUpdate }) => {
   };
 
   return (
-    <div className="card bg-slate-300 shadow-xl">
+    <div className="card bg-base-200 shadow-xl">
       <div className="card-body items-center text-center">
         <h2 className="card-title text-2xl">{name}</h2>
         <p>{message}</p>
         <div className="card-actions justify-end">
-          <label htmlFor="my-modal-3" className="btn">
+          <label htmlFor="my-modal-3" className="btn ">
             Edit
           </label>
 
@@ -61,7 +61,7 @@ const MyReviewCard = ({ review, handleReviewDelete, setUpdate }) => {
 
           <button
             onClick={() => handleReviewDelete(_id)}
-            className="btn btn-warning"
+            className="btn bg-red-500 border-0"
           >
             Delete
           </button>

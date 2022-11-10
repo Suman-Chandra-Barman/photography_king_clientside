@@ -16,7 +16,7 @@ const PhotoGallery = () => {
   return (
     <div className="my-16 ">
       <h3 className="text-3xl font-bold text-center mb-10">Photo Gallery</h3>
-      <div className="md:grid grid-cols-4 gap-5">
+      <div className="grid md:grid-cols-4 gap-5">
         <img src={img1} alt="" className="w-full" />
         <img src={img2} alt="" className="w-full" />
         <img src={img3} alt="" className="w-full" />

@@ -59,7 +59,7 @@ const MyReview = () => {
       {myReview?.length ? (
         <div>
           <h3 className="text-center text-3xl font-bold mb-10">
-            My Review : {myReview?.length}
+            Your Review : {myReview?.length}
           </h3>
           <div className="grid md:grid-cols-2 gap-10">
             {myReview?.map((review) => (

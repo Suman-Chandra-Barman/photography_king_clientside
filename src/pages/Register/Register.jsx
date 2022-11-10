@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import setAuthToken from "../../utilities/setAuthToken";
 
 const Register = () => {
   const { createUser, updateUserProfile, setSpinner, loadingSpinner } =
@@ -27,9 +28,10 @@ const Register = () => {
         console.log(user);
         setError("");
         form.reset();
-        navigate("/");
+        setAuthToken(user);
         setSpinner(false);
         updateUserProfileInfo(name, photoURL);
+        navigate("/");
       })
       .catch((error) => {
         setSpinner(false);

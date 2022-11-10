@@ -83,8 +83,11 @@ const ServiceDetails = () => {
                   placeholder="Type Your Review"
                 ></textarea>
               </div>
-              <button className="btn btn-success w-full mt-5" type="submit">
-                Post
+              <button
+                className="btn btn-success w-full mt-5 text-white"
+                type="submit"
+              >
+                Add Review
               </button>
             </form>
           ) : (

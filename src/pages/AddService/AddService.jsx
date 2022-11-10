@@ -35,7 +35,7 @@ const AddService = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-10">
+    <div className="bg-base-200 py-10 rounded-xl">
       <div className="flex flex-col  items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
         <div>
           <h3 className="text-4xl font-bold text-gray-700">Add Service</h3>
@@ -108,7 +108,7 @@ const AddService = () => {
             <div className=" text-red-400">{}</div>
 
             <div className="flex items-center mt-4">
-              <button className="w-full px-4 py-2  text-white bg-success rounded-md hover:bg-green-600 focus:outline-none">
+              <button className="w-full px-4 py-2  text-white bg-success rounded-md hover:bg-green-500 focus:outline-none">
                 Add Service
               </button>
             </div>
