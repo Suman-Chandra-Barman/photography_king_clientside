@@ -4,7 +4,7 @@ import useTitle from "../../hooks/useTitle";
 const Blog = () => {
   useTitle("Blog");
   return (
-    <div className="lg:w-2/3 mx-auto mt-10">
+    <div className="lg:w-2/3 mx-auto mt-10 relative">
       <h2 className="text-center text-3xl my-5">
         Important interview questions
       </h2>

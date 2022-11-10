@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import setAuthToken from "../../utilities/setAuthToken";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -21,15 +22,14 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     login(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         toast.success("Login successful");
         setError("");
         form.reset();
+        setAuthToken(user);
         navigate(from, { replace: true });
       })
       .catch((error) => {

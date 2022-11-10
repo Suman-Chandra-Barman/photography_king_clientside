@@ -10,7 +10,11 @@ const MyReview = () => {
   useTitle("My Review");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my-review?email=${user?.email}`)
+    fetch(`http://localhost:5000/my-review?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("photography_king_jwt")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

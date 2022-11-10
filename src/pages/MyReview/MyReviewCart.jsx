@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MyReviewCard = ({ review, handleReviewDelete }) => {
-  console.log(review);
   const { name, message, _id } = review;
   return (
     <div className="card bg-slate-300 shadow-xl">
