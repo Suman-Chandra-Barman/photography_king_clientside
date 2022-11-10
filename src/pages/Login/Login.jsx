@@ -57,7 +57,7 @@ const Login = () => {
       <div className="flex flex-col  items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
         <div>
           {loadingSpinner()}
-          <h3 className="text-4xl font-bold text-gray-700">
+          <h3 className="text-2xl md:text-4xl font-bold text-gray-700">
             Login Your Account
           </h3>
         </div>

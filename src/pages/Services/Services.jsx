@@ -13,7 +13,7 @@ const Services = () => {
   return (
     <>
       <div className="w-20 mx-auto">{loadingSpinner()}</div>
-      <div className="md:grid grid-cols-3 gap-5 mt-16 mb-10">
+      <div className="md:grid grid-cols-3 gap-5 my-10">
         {services?.map((service) => (
           <ServiceCart key={service._id} service={service} />
         ))}
