@@ -27,6 +27,7 @@ const Home = () => {
 
   return (
     <div>
+      {/* this is Carousel part  */}
       <Slider />
       <div className="rounded-xl">
         <div className="md:grid grid-cols-3 gap-5 mt-16 mb-5">
@@ -34,6 +35,8 @@ const Home = () => {
             <ServiceCart key={service._id} service={service} />
           ))}
         </div>
+
+        {/* services section  */}
         <div className="text-center ">
           <Link to="/services">
             <button className="btn px-20 btn-success text-white">
@@ -43,9 +46,11 @@ const Home = () => {
         </div>
       </div>
       <div>
+        {/* Photo Gallery section  */}
         <PhotoGallery />
       </div>
       <div>
+        {/* About our service section  */}
         <AboutMe></AboutMe>
       </div>
     </div>

@@ -51,6 +51,7 @@ const ServiceDetails = () => {
   }, [name, count]);
 
   return (
+    // service details part
     <div>
       <div className="grid  md:grid-cols-2 gap-5 my-16">
         <div className="card card-compact bg-base-100 shadow-2xl">
@@ -67,6 +68,8 @@ const ServiceDetails = () => {
             <p className="text-base">{description}</p>
           </div>
         </div>
+
+        {/* user review post section  */}
         <div className="text-center justify-center items-center flex">
           {user?.email ? (
             <form onSubmit={handleReview} className="w-full">
@@ -94,6 +97,8 @@ const ServiceDetails = () => {
           )}
         </div>
       </div>
+
+      {/* user review section  */}
       <div>
         <h3 className="text-4xl font-bold text-center mb-10">
           {reviews.length ? "User Review" : "No Review"}
