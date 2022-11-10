@@ -92,7 +92,9 @@ const ServiceDetails = () => {
             </form>
           ) : (
             <div className="justify-center items-center">
-              <h3 className="text-4xl">Please login to add a review</h3>
+              <h3 className="text-2xl md:text-4xl">
+                Please login to add a review
+              </h3>
               <Link to="/login">
                 <button className="btn btn-primary w-1/2 mt-10">Login</button>
               </Link>

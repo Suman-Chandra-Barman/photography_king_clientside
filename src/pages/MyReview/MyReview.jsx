@@ -74,7 +74,9 @@ const MyReview = () => {
         </div>
       ) : (
         <div className="h-[80vh] flex justify-center items-center">
-          <h3 className="text-6xl font-bold">No reviews were added</h3>
+          <h3 className="text-2xl md:text-6xl font-bold">
+            No reviews were added
+          </h3>
         </div>
       )}
     </div>
